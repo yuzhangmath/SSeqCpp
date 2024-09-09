@@ -897,22 +897,16 @@ int main_mul_v2(int argc, char** argv, int& index, const char* desc)
     return 1;
 }
 
-int main_test(int argc, char** argv, int& index, const char* desc)
+int main_tmp(int argc, char** argv, int& index, const char* desc)
 {
     using namespace steenrodp;
-
-    std::string sM1, sM2;
-
-    myio::CmdArg1d args = {{"M1", &sM1}, {"M2", &sM2}};
-    myio::CmdArg1d op_args = {};
-    if (int error = myio::ParseArguments(argc, argv, index, PROGRAM, desc, VERSION, args, op_args))
-        return error;
-
-    int1d a;
-    std::map<int, int> map;
-    ut::get(a, 10) = 1;
-    auto b = ut::get(a, 11, 0);
-    ut::has(map, 8);
-        
+    std::vector<int> a = {1, 2, 3, 4, 5, 6};
+    std::vector<int> b(6);
+    ut::for_each_par32(6, [&a, &b](size_t i){
+        b[i] = a[i] * a[i];
+    });
+    for (size_t i = 0; i < 6; ++i)
+        fmt::print("{} ", b[i]);
+    fmt::print("\n");
     return 0;
 }

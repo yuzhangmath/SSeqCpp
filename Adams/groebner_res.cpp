@@ -749,6 +749,9 @@ void Resolve(AdamsRes& gb, const Mod1d& rels, const int1d& v_degs, int t_max, in
             }
         });
 
+        
+
+
         /* Triangulate these relations */
         DataMRes2d data(tt);
         Mod2d rels_x2m(tt - 1);
