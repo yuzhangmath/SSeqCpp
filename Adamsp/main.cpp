@@ -18,7 +18,7 @@ int main(int argc, char** argv)
         {"mul_v2", "Multiply two Milnor basis using (c: E: R:) formatted input", main_mul_v2}
     };
     int index = 1;
-    if (int error = myio::ParseSubCmd(argc, argv, index, PROGRAM, "Build R-motivic A-resolutions and chain maps.", VERSION, subcmds))
+    if (int error = myio::ParseSubCmd(argc, argv, index, PROGRAM, "Build A-resolutions and chain maps at odd prime.", VERSION, subcmds))
         return error;
     return 0;
 }
